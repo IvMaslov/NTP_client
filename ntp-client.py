@@ -6,7 +6,7 @@ NTP packet:
    -----------------------------------------------------------------
    |LI | VN  |Mode |    Stratum    |      Poll     |   Precision   |
    -----------------------------------------------------------------
-   |          					 Root Delay					       |
+   |                              Root Delay			   |
    -----------------------------------------------------------------
    |                           Root Dispersion                     |
    -----------------------------------------------------------------
@@ -53,22 +53,6 @@ class NTP_PACKET():
 		self.transmit = transmit
 
 	def pack(self):
-# 		print((self.LI << 6) + (self.VN << 3) + self.mode,
-# self.stratum,
-# self.poll,
-# self.precision,
-# int(self.root_delay) + self.get_fraction(self.root_delay,16),
-# int(self.root_disperation) + self.get_fraction(self.root_disperation,16),
-# self.ref_id,
-# int(self.ref),
-# self.get_fraction(self.ref,32),
-# int(self.originate),
-# self.get_fraction(self.originate,32),
-# int(self.receive),
-# self.get_fraction(self.receive,32),
-# int(self.transmit),
-# int(self.get_fraction(self.transmit,32)))
-
 		return struct.pack(NTP_PACKET._FORMAT,
 			(self.LI << 6) + (self.VN << 3) + self.mode,
 			self.stratum,
